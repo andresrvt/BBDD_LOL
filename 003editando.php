@@ -6,12 +6,12 @@ champs para poder ver los cambios. -->
 <form class="row g-3 needs-validation" novalidate>
   <div class="col-md-4">
     <label for="validationCustom01" class="form-label">Nombre del campeón</label>
-    <input type="text" class="form-control" id="validationCustom01" value="<?php echo "$champ[name]" ?>" required>
+    <input type="text" class="form-control" id="validationCustom01" value=<?php echo "$champ[name]" ?> required>
   </div>
   <div class="col-md-3">
     <label for="validationCustom04" class="form-label">Selecciona un rol</label>
     <select class="form-select" id="validationCustom04" required>
-      <option selected disabled value="<?php echo "$champ[rol]" ?>">Rol</option>
+      <option selected disabled value=<?php echo "$champ[rol]" ?>>Rol</option>
       <option>Asesino</option>
       <option>Luchador</option>
       <option>Mago</option>
@@ -23,7 +23,7 @@ champs para poder ver los cambios. -->
   <div class="col-md-3">
     <label for="validationCustom05" class="form-label">Dificultad</label>
     <select class="form-select" id="validationCustom04" required>
-      <option selected disabled value="<?php echo "$champ[difficulty]" ?>">Nivel de Dificultad</option>
+      <option selected disabled value=<?php echo "$champ[difficulty]" ?>>Nivel de Dificultad</option>
       <option>Baja</option>
       <option>Moderada</option>
       <option>Alta</option>
@@ -31,7 +31,7 @@ champs para poder ver los cambios. -->
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Descripción</label>
-    <textarea class="form-control" name="" id="" rows="3" value="<?php echo "$champ[description]" ?>"></textarea>
+    <textarea class="form-control" name="" id="" rows="3" value=<?php echo "$champ[description]" ?>></textarea>
   </div>
   <div class="col-12">
     <button class="btn btn-primary" type="submit">Enviar datos</button>
