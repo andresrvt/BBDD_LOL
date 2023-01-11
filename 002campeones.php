@@ -11,16 +11,17 @@ if (mysqli_connect_errno()) {
     exit();
 };
 
-echo "<h1>Conexión realizada</h1>";
+echo "<h1 class='m-2'</h1>Conexión realizada</h1>";
 
 $consulta = "SELECT * FROM `champ`";
 $listaChamp = mysqli_query($conexion, $consulta);
 
 if ($listaChamp) {
     foreach ($listaChamp as $champs) {
+        echo "<div class='container-fluid !direction !spacing'>";
         echo "$champs[id]. Nombre campeón: $champs[name] -- Rol: $champs[rol] -- Dificultad: $champs[difficulty] <br> - $champs[description]<br>";
         echo "<a href='003editando.php?id=$champs[id]'><button class='btn btn-primary'>Editar</button></a>";
-        echo "<button class='btn btn-primary m-2'>Borrar</button><br><br>";
+        echo "<button class='btn btn-primary m-2'>Borrar</button><br><br></div>";
     }
 }
 ?>
