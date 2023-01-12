@@ -6,43 +6,43 @@ champs para poder ver los cambios. -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
 
 <?php
-$id = $_GET['id'] ?? $_POST['id'];
+  $id = $_GET['id'] ?? $_POST['id'];
 
-$conexion = mysqli_connect("localhost", "root", "", "lol");
+  $conexion = mysqli_connect("localhost", "root", "", "lol");
 
-if (mysqli_connect_errno()) {
-  echo "Failed to connect to MySQL: " . mysqli_connect_error();
-  exit();
-};
+  if (mysqli_connect_errno()) {
+    echo "Failed to connect to MySQL: " . mysqli_connect_error();
+    exit();
+  };
 
-if (isset($id)) {
-  $consulta = "SELECT * FROM `champ` WHERE id = $id";
-  $campeon = mysqli_query($conexion, $consulta);
+  if (isset($id)) {
+    $consulta = "SELECT * FROM `champ` WHERE id = $id";
+    $campeon = mysqli_query($conexion, $consulta);
 
-  if ($campeon) {
-    foreach ($campeon as $champs) {
+    if ($campeon) {
+      foreach ($campeon as $champs) {
+      }
+    } else {
+      echo "No hay campeón seleccionado";
     }
-  } else {
-    echo "No hay campeón seleccionado";
   }
-}
 
-if (isset($_POST["enviar"])) {
-  $actualizar = "UPDATE champ 
-  SET `name` = $_POST[nombre] 
-  rol = $_POST[rol]
-  difficulty = $_POST[difficulty]
-  description = $_POST[description]
-  WHERE id = $id";
+  if (isset($_POST['enviar'])) {
+    $actualizar = "UPDATE champ 
+    SET `name` = '$_POST[nombre]', 
+    rol = '$_POST[rol]',
+    difficulty = '$_POST[difficulty]',
+    description = '$_POST[description]'
+    WHERE id = $id";
 
-  if(isset($id)){
     $updateCampeon = mysqli_query($conexion, $actualizar);
+    header("Location:002campeones.php");
   }
-}
 
 ?>
+
 <div class="container-fluid !direction !spacing">
-  <form class="row g-3 needs-validation" action="002campeones.php" method="post" novalidate>
+  <form class="row g-3 needs-validation" method="post" novalidate>
     <div class="col-md-4">
       <label for="validationCustom01" class="form-label">Nombre del campeón</label>
       <input type="text" class="form-control" id="validationCustom01" name="nombre" value=<?php echo "$champs[name]" ?> required>
@@ -94,3 +94,9 @@ if (isset($_POST["enviar"])) {
     </div>
   </form>
 </div>
+
+<form class="row g-3 needs-validation" method="post" novalidate>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit" name="enviar"> Enviar datos</button>
+  </div>
+</form>
