@@ -94,9 +94,3 @@ champs para poder ver los cambios. -->
     </div>
   </form>
 </div>
-
-<form class="row g-3 needs-validation" method="post" novalidate>
-  <div class="col-12">
-    <button class="btn btn-primary" type="submit" name="enviar"> Enviar datos</button>
-  </div>
-</form>
